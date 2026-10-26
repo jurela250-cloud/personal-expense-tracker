@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Expense Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+
+    <header>
+        <h1>Personal Expense Tracker</h1>
+        <p>Manage your money smartly</p>
+    </header>
+
+    <main>
+
+        <!-- Dashboard Summary -->
+        <section class="dashboard">
+            <div class="card">
+                <h3>Total Balance</h3>
+                <p id="balance">₹0</p>
+            </div>
+
+            <div class="card">
+                <h3>Total Income</h3>
+                <p id="income">₹0</p>
+            </div>
+
+            <div class="card">
+                <h3>Total Expenses</h3>
+                <p id="expenses">₹0</p>
+            </div>
+        </section>
+
+        <!-- Add Transaction Form -->
+        <section class="transaction-form">
+            <h2>Add Transaction</h2>
+
+            <form id="expenseForm">
+
+                <label for="title">Transaction Name</label>
+                <input
+                    type="text"
+                    id="title"
+                    placeholder="e.g. Food, Salary"
+                    required
+                >
+
+                <label for="amount">Amount (₹)</label>
+                <input
+                    type="number"
+                    id="amount"
+                    placeholder="Enter amount"
+                    min="0.01"
+                    step="0.01"
+                    required
+                >
+
+                <label for="type">Transaction Type</label>
+                <select id="type" required>
+                    <option value="income">Income</option>
+                    <option value="expense">Expense</option>
+                </select>
+
+                <label for="category">Category</label>
+                <select id="category" required>
+                    <option value="Food">Food</option>
+                    <option value="Education">Education</option>
+                    <option value="Travel">Travel</option>
+                    <option value="Shopping">Shopping</option>
+                    <option value="Salary">Salary</option>
+                    <option value="Other">Other</option>
+                </select>
+
+                <label for="date">Date</label>
+                <input type="date" id="date" required>
+
+                <button type="submit">Add Transaction</button>
+
+            </form>
+        </section>
+        
+<!-- Monthly Budget -->
+<section class="budget-section">
+    <h2>Monthly Budget</h2>
+
+    <label for="budgetAmount">Set Monthly Budget (₹)</label>
+    <input
+        type="number"
+        id="budgetAmount"
+        placeholder="Enter your monthly budget"
+        min="1"
+        step="0.01"
+    >
+
+    <button type="button" id="saveBudget">
+        Save Budget
+    </button>
+
+    <div class="budget-info">
+        <p>Monthly Budget: <span id="monthlyBudget">₹0.00</span></p>
+        <p>Monthly Expenses: <span id="monthlyExpenses">₹0.00</span></p>
+        <p>Remaining Budget: <span id="remainingBudget">₹0.00</span></p>
+        <p id="budgetMessage">Set your monthly budget to get started.</p>
+    </div>
+</section>
+
+<!-- Expense Chart -->
+<section class="chart-section">
+    <h2>Category-wise Expenses</h2>
+    <canvas id="expenseChart"></canvas>
+</section>
+
+
+        <!-- Transaction History -->
+        <section class="transaction-history">
+            <div class="filters">
+
+    <input
+        type="search"
+        id="searchInput"
+        placeholder="Search transaction..."
+    >
+
+    <select id="filterType">
+        <option value="all">All Types</option>
+        <option value="income">Income</option>
+        <option value="expense">Expense</option>
+    </select>
+
+    <select id="filterCategory">
+        <option value="all">All Categories</option>
+        <option value="Food">Food</option>
+        <option value="Education">Education</option>
+        <option value="Travel">Travel</option>
+        <option value="Shopping">Shopping</option>
+        <option value="Salary">Salary</option>
+        <option value="Other">Other</option>
+    </select>
+
+</div>
+            <h2>Transaction History</h2>
+            <button id="clearAllBtn" type="button">
+    Clear All Transactions
+</button>
+
+            <ul id="transactionList">
+                <!-- Transactions will appear here using JavaScript -->
+            </ul>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Personal Expense Tracker | Manage Your Money</p>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="script.js"></script>
+    
+
+</body>
+</html>
